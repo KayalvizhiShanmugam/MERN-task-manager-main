@@ -11,6 +11,10 @@ const profileRoutes = require("./routes/profileRoutes");
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public','index.html'));
+});
+
 const mongoUrl = process.env.MONGODB_URL;
 mongoose.connect('mongodb+srv://Kayalvizhi:zEhG94Ca1jgLI7S5@cluster0.fo1f9ik.mongodb.net/items?retryWrites=true&w=majority', err => {
   if (err) throw err;
